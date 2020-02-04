@@ -10,15 +10,20 @@ function guessTheNumber(){
   console.log(guessednumber);
   function guessTheNumber02(){
     let customnumber = prompt('Угадай число от 1 до 100');
-    if (!isNumber(customnumber)){
-      customnumber = prompt('Введи число');
-    } else if (customnumber > guessednumber) {
-      customnumber = prompt('Загаданное число меньше, введи заново');
-    } else if (customnumber < guessednumber) {
-      customnumber = prompt('Загаданное число больше, введи заново');
-    } else if (customnumber == guessednumber) {
-      alert('Угадал!!!');
+    while(guessednumber != customnumber){
+      if (!isNumber(customnumber)){
+        customnumber = prompt('Введи число');
+      } 
+      
+      else if (customnumber > guessednumber) {
+        customnumber = prompt('Загаданное число меньше, введи заново');
+      } 
+      
+      else if (customnumber < guessednumber) {
+        customnumber = prompt('Загаданное число больше, введи заново');
+      } 
     }
+    alert('Ты угадал число' + guessednumber);
   }
   guessTheNumber02();
 }
