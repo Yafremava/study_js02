@@ -22,8 +22,11 @@ function guessTheNumber(){
       else if (customnumber < guessednumber) {
         customnumber = prompt('Загаданное число больше, введи заново');
       } 
+      if (customnumber === null) {
+        alert('Игре конец');
+      }
     }
-    alert('Ты угадал число' + guessednumber);
+    alert('Ты угадал число ' + guessednumber);
   }
   guessTheNumber02();
 }
