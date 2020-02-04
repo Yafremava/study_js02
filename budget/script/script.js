@@ -1,17 +1,25 @@
 ' use strict';
-let customnumber = prompt("Угадай число от 1 до 100");
+let isNumber = function(n) {
+  return (!isNaN(parseFloat(n)) && isFinite(n));
+};
+
+
+
 function guessTheNumber(){
-  if (!isNaN(parseFloat(customnumber)) && isFinite(customnumber)) {
-    alert('Введи число!');
-  }
-  function guessTheNumber02(guessednumber) {
-    if (customnumber > guessednumber) {
-      alert('Загаданное число меньше');
+  let guessednumber = Math.ceil(Math.random()*100);// от 1 до 100
+  console.log(guessednumber);
+  function guessTheNumber02(){
+    let customnumber = prompt('Угадай число от 1 до 100');
+    if (!isNumber(customnumber)){
+      prompt('Введи число');
+    } else if (customnumber > guessednumber) {
+      console.log(prompt('Загаданное число меньше, введи заново'));
     } else if (customnumber < guessednumber) {
-      alert('Загаданное число больше');
-    }  
-    return guessTheNumber02(35);
+      console.log(prompt('Загаданное число больше, введи заново'));
+    } else if (customnumber == guessednumber) {
+      alert('Угадал');
+    }
   }
-  console.dir(guessTheNumber02);
+  guessTheNumber02();
 }
-guessTheNumber(34);
+guessTheNumber();
