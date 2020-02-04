@@ -10,6 +10,9 @@ function guessTheNumber(){
   console.log(guessednumber);
   function guessTheNumber02(){
     let customnumber = prompt('Угадай число от 1 до 100');
+    if (customnumber === null) {
+      alert('Игре конец');
+    }
     while(guessednumber != customnumber){
       if (!isNumber(customnumber)){
         customnumber = prompt('Введи число');
@@ -22,7 +25,7 @@ function guessTheNumber(){
       else if (customnumber < guessednumber) {
         customnumber = prompt('Загаданное число больше, введи заново');
       } 
-      if (customnumber === null) {
+      else if (customnumber === null) {
         alert('Игре конец');
       }
     }
