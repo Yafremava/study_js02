@@ -11,13 +11,13 @@ function guessTheNumber(){
   function guessTheNumber02(){
     let customnumber = prompt('Угадай число от 1 до 100');
     if (!isNumber(customnumber)){
-      prompt('Введи число');
+      customnumber = prompt('Введи число');
     } else if (customnumber > guessednumber) {
-      console.log(prompt('Загаданное число меньше, введи заново'));
+      customnumber = prompt('Загаданное число меньше, введи заново');
     } else if (customnumber < guessednumber) {
-      console.log(prompt('Загаданное число больше, введи заново'));
+      customnumber = prompt('Загаданное число больше, введи заново');
     } else if (customnumber == guessednumber) {
-      alert('Угадал');
+      alert('Угадал!!!');
     }
   }
   guessTheNumber02();
