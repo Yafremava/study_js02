@@ -1,4 +1,4 @@
-' use strict';
+'use strict';
 let isNumber = function(n) {
   return (!isNaN(parseFloat(n)) && isFinite(n));
 };
@@ -13,7 +13,7 @@ function guessTheNumber(){
     if (customnumber === null) {
       alert('Игре конец');
     }
-    while(guessednumber != customnumber){
+    while(guessednumber !== customnumber){
       if (!isNumber(customnumber)){
         customnumber = prompt('Введи число');
       } 

@@ -1,4 +1,4 @@
-' use strict';
+'use strict';
 let isNumber = function(n) {
   return (!isNaN(parseFloat(n)) && isFinite(n));
 };
@@ -29,7 +29,7 @@ function guessTheNumber(){
       customnumber = prompt('Загаданное число больше, введи заново');
     } 
     
-    else if (customnumber == guessednumber){
+    else if (customnumber === guessednumber){
       return(alert('Ты угадал число ' + guessednumber));
     }
     guessTheNumber02();
