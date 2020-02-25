@@ -6,13 +6,14 @@ let isNumber = function(n) {
 const Budget = function(){
   this.guessednumber = Math.ceil(Math.random()*100);// от 1 до 100
   this.customnumber = prompt('Угадай число от 1 до 100');
-  if (this.customnumber === null) {
-    return(alert('Игре конец :('));
-  }   
+  this.eventsListeners();   
 };
 
 Budget.prototype.eventsListeners =function(){
-  if (!isNumber(this.customnumber)){
+  if (this.customnumber === null) {
+    return(alert('Игре конец :('));
+  } 
+  else if (!isNumber(this.customnumber)){
     this.customnumber = prompt('Введи число');
   } 
     
@@ -27,7 +28,7 @@ Budget.prototype.eventsListeners =function(){
   else if (this.customnumber === this.guessednumber){
     return(alert('Ты угадал число ' + this.guessednumber));
   }
- 
+  this.eventsListeners();
 };
 
 const budget = new Budget();
