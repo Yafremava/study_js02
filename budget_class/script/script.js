@@ -9,7 +9,7 @@ const Budget = function(){
   this.eventsListeners();   
 };
 
-Budget.prototype.eventsListeners =function(){
+Budget.prototype.eventsListeners = function(){
   if (this.customnumber === null) {
     return(alert('Игре конец :('));
   } 
@@ -30,6 +30,5 @@ Budget.prototype.eventsListeners =function(){
   }
   this.eventsListeners();
 };
-
 const budget = new Budget();
 console.log(budget);
