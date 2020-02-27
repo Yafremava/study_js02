@@ -1,12 +1,12 @@
 'use strict';
-function DomElement(){
-  this.selector = '';
-  this.height = 0; 
-  this.width = 0; 
-  this.bg = 0; 
-  this.fontSize = 0;
+function DomElement(selector, height, width, bg, fontSize){
+  this.selector = selector;
+  this.height = height; 
+  this.width = width; 
+  this.bg = bg; 
+  this.fontSize = fontSize;
 }
-DomElement.prototype.createElement = function(selector){
+DomElement.prototype.createElement = function(){
   if (this.selector[0] === '.'){
     let elem = document.createElement('div');
 
@@ -26,8 +26,8 @@ DomElement.prototype.createElement = function(selector){
     elem.style.cssText = "background-color:blue;font-size:55px;width: 50px;height: 50px;";
   }
 };
-const domElement = new DomElement();
-const domElement1 = new DomElement();
+const domElement = new DomElement('.block', 100, 100, 'pink', 55);
+const domElement1 = new DomElement('.block');
 
 domElement1.createElement('.block');
 console.log(domElement1);
