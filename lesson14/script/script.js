@@ -1,33 +1,36 @@
 'use strict';
-function DomElement(selector, height, width, bg, fontSize){
+function DomElement(selector, height, width, bg, fontSize, text){
   this.selector = selector;
   this.height = height; 
   this.width = width; 
   this.bg = bg; 
   this.fontSize = fontSize;
+  this.text =text;
 }
 DomElement.prototype.createElement = function(){
+  let elem;
   if (this.selector[0] === '.'){
-    let elem = document.createElement('div');
 
-    elem.classList.add(this.selector.browserType.slice(1));
+    elem = document.createElement('div');
+    elem.classList.add(this.selector.slice(1)); 
 
-    let text = document.createTextNode("Привет");
-    elem.appendChild(text);
-
-    elem.style.cssText = "background-color:pink;font-size:55px;width: 50px;height: 50px;";
   } else if(this.selector[0] === '#'){
-    let elem = document.createElement('id');
-    
-    elem.classList.add(this.selector.browserType.slice(1));
-    let text = document.createTextNode("Пока");
-    elem.appendChild(text);
 
-    elem.style.cssText = "background-color:blue;font-size:55px;width: 50px;height: 50px;";
+    elem = document.createElement('p');   
+    elem.setAttribute('id', this.selector.slice(1));
   }
+  elem.textContent = this.text;
+  elem.style.cssText = `
+    height: ${this.height}px;
+    width:${this.width}px;
+    background-color: ${this.bg};
+    font-size: ${this.fontSize}px;
+  `;
+  let body = document.querySelector('body');
+  body.append(elem);
 };
-const domElement = new DomElement('.block', 100, 100, 'pink', 55);
-const domElement1 = new DomElement('.block');
+const domElement = new DomElement('.block', 100, 230, 'pink', 70, 'Привет');
+const domElement1 = new DomElement('#block', 100, 230, 'blue', 70, 'Пока');
 
-domElement1.createElement('.block');
-console.log(domElement1);
+domElement.createElement();
+domElement1.createElement();
